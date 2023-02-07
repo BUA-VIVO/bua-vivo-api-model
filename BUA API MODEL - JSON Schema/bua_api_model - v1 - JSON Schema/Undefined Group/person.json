@@ -1,0 +1,309 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "bua_person",
+    "type": "object",
+    "title": "Person",
+    "properties": {
+        "firstName": {
+            "type": "string",
+            "title": "firstName",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "lastName": {
+            "type": "string",
+            "title": "lastName",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "middleName": {
+            "type": "string",
+            "title": "middleName",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "description": {
+            "type": "string",
+            "title": "description"
+        },
+        "birthday": {
+            "type": "string",
+            "title": "birthday",
+            "format": "date",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "gender": {
+            "type": "string",
+            "title": "gender",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "nationality": {
+            "type": "string",
+            "title": "nationality",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "address": {
+            "type": "string",
+            "title": "address"
+        },
+        "email": {
+            "type": "string",
+            "title": "email",
+            "format": "email",
+            "pattern": "/^([\\w\\!\\#$\\%\\&\\'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+\\.)*[\\w\\!\\#$\\%\\&\\'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+@((((([a-z0-9]{1}[a-z0-9\\-]{0,62}[a-z0-9]{1})|[a-z])\\.)+[a-z]{2,6})|(\\d{1,3}\\.){3}\\d{1,3}(\\:\\d{1,5})?)$/i"
+        },
+        "phone": {
+            "type": "string",
+            "title": "phone",
+            "pattern": "^\\+(?:[0-9] ?){6,25}[0-9]$"
+        },
+        "webpages": {
+            "type": "array",
+            "title": "webpages",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "url": {
+                        "type": "string",
+                        "title": "url",
+                        "format": "uri"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "url"
+                ]
+            }
+        },
+        "disciplinaryResearchAreas": {
+            "type": "array",
+            "title": "disciplinaryResearchAreas",
+            "items": {
+                "type": "string"
+            }
+        },
+        "doctoralEligibility": {
+            "type": "boolean",
+            "title": "doctoralEligibility",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "doctoralEligibilityFrom": {
+            "type": "string",
+            "title": "doctoralEligibilityFrom",
+            "default": "domes",
+            "enum": [
+                "domestic",
+                "foreign"
+            ]
+        },
+        "isPhD": {
+            "type": "boolean",
+            "title": "isPhD",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "primarySupervisor": {
+            "type": "string",
+            "title": "primarySupervisor",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "doctoralCooperationPartner": {
+            "type": "string",
+            "title": "doctoralCooperationPartner",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "qualificationProcess": {
+            "type": "array",
+            "title": "qualificationProcess",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "title": "type",
+                        "enum": [
+                            "habilitation",
+                            "doctoral thesis"
+                        ],
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "completionDate": {
+                        "type": "string",
+                        "title": "completionDate",
+                        "format": "date",
+                        "$comment": "Empfohlen von KDSF"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "type"
+                ]
+            }
+        },
+        "ids": {
+            "type": "array",
+            "title": "ids",
+            "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "houseID": {
+                                "type": "string",
+                                "title": "houseID"
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "orcid": {
+                                "type": "string",
+                                "title": "ORCiD"
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "positions": {
+            "type": "array",
+            "title": "positions",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "positionName": {
+                        "type": "string",
+                        "title": "positionName",
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "organisationalUnit": {
+                        "type": "string",
+                        "title": "organisationalUnit",
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "organisationalUnitID": {
+                        "type": "string",
+                        "title": "organisationalUnitID"
+                    },
+                    "staffCategory": {
+                        "type": "string",
+                        "title": "staffCategory",
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "timeLimit": {
+                        "type": "string",
+                        "title": "timeLimit",
+                        "enum": [
+                            "befristet",
+                            "unbefristet"
+                        ],
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "title": "subjects",
+                        "$comment": "Empfohlen von KDSF; Grundlage für die Fachzuordnung sind die Fächersystematiken des Statistischen Bundesamtes.",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "disciplinaryResearchAreas": {
+                        "type": "array",
+                        "title": "disciplinaryResearchAreas",
+                        "$comment": "Empfohlen von KDSF",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "positionName"
+                ]
+            }
+        },
+        "roles": {
+            "type": "array",
+            "title": "roles",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "roleName": {
+                        "type": "string",
+                        "title": "roleName"
+                    },
+                    "unit": {
+                        "type": "string",
+                        "title": "unit",
+                        "enum": [
+                            "projects",
+                            "clusters",
+                            "etc."
+                        ]
+                    },
+                    "unitIds": {
+                        "type": "array",
+                        "title": "unitIds",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "houseId": {
+                                            "type": "string",
+                                            "title": "houseId"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "anyOtherID": {
+                                            "type": "string",
+                                            "title": "anyOtherID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "roleName"
+                ]
+            }
+        },
+        "interDisciplinaryResearchAreas": {
+            "type": "array",
+            "title": "interDisciplinaryResearchAreas",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "firstName",
+        "lastName"
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "bua_data_api",
+    "type": "object",
+    "title": "BUA DATA API",
+    "properties": {
+        "identification": {
+            "type": "object",
+            "title": "identification",
+            "properties": {
+                "organizationId": {
+                    "type": "string",
+                    "title": "organizationId"
+                },
+                "authorizationToken": {
+                    "type": "string",
+                    "title": "authorizationToken"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "organizationId",
+                "authorizationToken"
+            ]
+        },
+        "type": {
+            "type": "string",
+            "title": "type",
+            "enum": [
+                "publication",
+                "person",
+                "event",
+                "project"
+            ]
+        },
+        "data": {
+            "type": "array",
+            "title": "data",
+            "additionalProperties": true,
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false
+                    }
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false
+                    }
+                }
+            ],
+            "items": true
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "identification",
+        "type",
+        "data"
+    ],
+    "dependentRequired": {
+        "data": [
+            "type"
+        ]
+    }
+}
