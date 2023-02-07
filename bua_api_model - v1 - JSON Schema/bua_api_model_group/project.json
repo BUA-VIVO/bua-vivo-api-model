@@ -1,0 +1,468 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "Project",
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "name"
+        },
+        "address": {
+            "type": "string",
+            "title": "address"
+        },
+        "phone": {
+            "type": "string",
+            "title": "phone",
+            "pattern": "^\\+(?:[0-9] ?){6,25}[0-9]$"
+        },
+        "emails": {
+            "type": "array",
+            "title": "emails",
+            "items": {
+                "type": "string",
+                "format": "email",
+                "pattern": "/^([\\w\\!\\#$\\%\\&\\'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+\\.)*[\\w\\!\\#$\\%\\&\\'\\*\\+\\-\\/\\=\\?\\^\\`{\\|\\}\\~]+@((((([a-z0-9]{1}[a-z0-9\\-]{0,62}[a-z0-9]{1})|[a-z])\\.)+[a-z]{2,6})|(\\d{1,3}\\.){3}\\d{1,3}(\\:\\d{1,5})?)$/i"
+            }
+        },
+        "organisationalUnit": {
+            "type": "array",
+            "title": "organisationalUnit",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "title": "ids",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "houseId": {
+                                            "type": "string",
+                                            "title": "houseId"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "anyOtherID": {
+                                            "type": "string",
+                                            "title": "anyOtherID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "coordinatorUnit": {
+                        "type": "boolean",
+                        "title": "coordinatorUnit"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "ids": {
+            "type": "array",
+            "title": "ids",
+            "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "anyOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "houseId": {
+                                "type": "string",
+                                "title": "houseId"
+                            }
+                        },
+                        "additionalProperties": true
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "anyOtherID": {
+                                "type": "string",
+                                "title": "anyOtherID"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "parentProject": {
+            "type": "object",
+            "title": "parentProject",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "name"
+                },
+                "ids": {
+                    "type": "array",
+                    "title": "ids",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "houseId": {
+                                        "type": "string",
+                                        "title": "houseId"
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "anyOtherID": {
+                                        "type": "string",
+                                        "title": "anyOtherID"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "$comment": "Empfohlen von KDSF",
+            "required": [
+                "name"
+            ]
+        },
+        "projectCoordinatorOrganisation": {
+            "type": "object",
+            "title": "projectCoordinatorOrganisation",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "name"
+                },
+                "ids": {
+                    "type": "array",
+                    "title": "ids",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "houseId": {
+                                        "type": "string",
+                                        "title": "houseId"
+                                    }
+                                },
+                                "additionalProperties": true
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "anyOtherID": {
+                                        "type": "string",
+                                        "title": "anyOtherID"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "$comment": "Empfohlen von KDSF",
+            "required": [
+                "name"
+            ]
+        },
+        "scientificProjectLead": {
+            "type": "array",
+            "title": "scientificProjectLead",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "title": "firstName"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "title": "lastName"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "title": "ids",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "houseID": {
+                                            "type": "string",
+                                            "title": "houseID"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "orcid": {
+                                            "type": "string",
+                                            "title": "ORCiD"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "firstName",
+                    "lastName"
+                ]
+            }
+        },
+        "keywords": {
+            "type": "array",
+            "title": "keywords",
+            "items": {
+                "type": "string"
+            }
+        },
+        "disciplinaryResearchAreas": {
+            "type": "array",
+            "title": "disciplinaryResearchAreas",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "string"
+            }
+        },
+        "subjects": {
+            "type": "array",
+            "title": "subjects",
+            "$comment": "Empfohlen von KDSF; Grundlage für die Fachzuordnung sind die Fächersystematiken des Statistischen Bundesamtes.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "description": {
+            "type": "string",
+            "title": "description"
+        },
+        "projectObjective": {
+            "type": "string",
+            "title": "projectObjective",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "funderCategories": {
+            "type": "array",
+            "title": "funderCategories",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "title": "ids",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "houseId": {
+                                            "type": "string",
+                                            "title": "houseId"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "anyOtherID": {
+                                            "type": "string",
+                                            "title": "anyOtherID"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "funders": {
+            "type": "array",
+            "title": "funders",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "country": {
+                        "type": "string",
+                        "title": "country"
+                    },
+                    "funderAbbrevation": {
+                        "type": "string",
+                        "title": "funderAbbrevation",
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "fundRef": {
+                        "type": "string",
+                        "title": "fundRef",
+                        "$comment": "Empfohlen von KDSF"
+                    },
+                    "ror": {
+                        "type": "string",
+                        "title": "ror"
+                    },
+                    "isoCountryCode": {
+                        "type": "string",
+                        "title": "isoCountryCode"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "projectStart": {
+            "type": "string",
+            "title": "projectStart",
+            "format": "date",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "projectEnd": {
+            "type": "string",
+            "title": "projectEnd",
+            "$comment": "Empfohlen von KDSF"
+        },
+        "thirdPartyFunding": {
+            "type": "number",
+            "title": "thirdPartyFunding",
+            "default": 0,
+            "$comment": "Empfohlen von KDSF"
+        },
+        "grantAmount": {
+            "type": "number",
+            "title": "grantAmount",
+            "default": 0,
+            "$comment": "Empfohlen von KDSF"
+        },
+        "projectStatus": {
+            "type": "string",
+            "title": "projectStatus",
+            "enum": [
+                "open",
+                "closed",
+                "proposal submitted",
+                "rejected"
+            ]
+        },
+        "webpages": {
+            "type": "array",
+            "title": "webpages",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "url": {
+                        "type": "string",
+                        "title": "url",
+                        "format": "uri"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "url"
+                ]
+            }
+        },
+        "repositories": {
+            "type": "array",
+            "title": "repositories",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "name"
+                    },
+                    "url": {
+                        "type": "string",
+                        "title": "url",
+                        "format": "uri"
+                    }
+                },
+                "additionalProperties": false,
+                "required": [
+                    "name",
+                    "url"
+                ]
+            }
+        },
+        "interDisciplinaryResearchAreas": {
+            "type": "array",
+            "title": "interDisciplinaryResearchAreas",
+            "$comment": "Empfohlen von KDSF",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "name"
+    ]
+}
