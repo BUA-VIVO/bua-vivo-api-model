@@ -3946,7 +3946,7 @@
             "code": false
         }
     },
-    "lastModifTS": "2023-02-07T11:18:45.952Z",
+    "lastModifTS": "2023-02-07T11:26:32.312Z",
     "persistenceSchemaVersion": "6",
     "isCreatedByPlugin": true,
     "pluginInformation": {
@@ -3997,7 +3997,7 @@
                     {
                         "GUID": "9ed84e35-538d-4791-b8f8-d10db7c536f4",
                         "x": 1156.4156653315542,
-                        "y": 379.923453493547,
+                        "y": 393.25678682688033,
                         "width": 324,
                         "height": 546,
                         "color": {}
